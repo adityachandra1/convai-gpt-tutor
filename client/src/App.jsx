@@ -71,7 +71,7 @@ function App() {
       // updatePrompt("");
     } catch (err) {
       console.log(err);
-      console.error(err, "err");
+      // console.error(err, "err");
     } finally {
       setLoading(false);
     }
