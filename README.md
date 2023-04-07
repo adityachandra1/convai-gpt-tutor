@@ -83,8 +83,8 @@ Method: POST
 ```
 **Description**: This API evaluates whether a student's response to a tutor's question on a topic shows sufficient understanding or not. The topic, student response, and tutor's question are provided in the request body.
 
-### GIF
-
+### Screenshot
+![Screenshot](screenshot.png)
 
 ### Scope of Improvement
 - Improvement in UI
