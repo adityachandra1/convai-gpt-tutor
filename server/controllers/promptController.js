@@ -43,7 +43,8 @@ const getSubtopics = async (req, res) => {
 const explainTopic = async (req, res) => {
     try {
         const topic = req.body.topic;
-        const prompt = `Give a brief description on ${topic} for a newbie.`
+        const subject = req.body.subject;
+        const prompt = `Give a brief description on ${topic} for a newbie, with respect to ${subject}`
         let response = await generateText(prompt);
         const second_prompt = `Using this prompt ${prompt}, ask a simple question on this topic understand if the student understood about ${topic}.`
         let second_response = await generateText(second_prompt);
@@ -67,7 +68,7 @@ const evaluateResponse = async (req, res) => {
         const user_response = req.body.user_response;
         const topic = req.body.topic;
         const question = req.body.question;
-        const prompt = `Given ML training info and Tutor’s question: ${question} and Student’s response: ${user_response}, does it show sufficient understanding of the ${topic}?. Answer it using "You" instead of "They"`
+        const prompt = `Given Tutor’s question: ${question} and Student’s response: ${user_response}, does it show sufficient understanding of the ${topic}?. Answer it using "You" instead of "They. Start with Yes or No."`
         let response = await generateText(prompt);
         if (response.includes('Yes')) {
             res.status(201).json({
